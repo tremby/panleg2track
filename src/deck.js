@@ -120,6 +120,12 @@ function reducer(state, action) {
 			.update('discard', (discard) => Set([]))
 			.update('epidemicCount', (epidemicCount) => epidemicCount + 1);
 			break;
+		case 'flatten':
+			next = state
+			.update('deck', (deck) => List([deck.push(state.get('discard')).flatten(1)]))
+			.update('discard', (discard) => Set([]))
+			.set('epidemicCount', 0);
+			break;
 		default:
 			throw new Error('Unknown action');
 	}

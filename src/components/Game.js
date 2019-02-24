@@ -60,6 +60,8 @@ const Game = () => {
 				/>
 			</SubDeck>
 		))}
+		<h2>New game</h2>
+		<p><button type="button" onClick={() => dispatch({ type: 'flatten' })}>Flatten the deck</button></p>
 	</>;
 }
 export default Game;
